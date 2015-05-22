@@ -4,10 +4,10 @@ WebVN is a format and processor for building visual novels using pure HTML and C
 
 In its current form, WebVN supports:
 - Linear storylines
-- One on-screen character
+- Up to three on-screen characters
 - Music with simple cues
 - Visual transitions (fades)
-
+- Flexible styling for dialogue
 
 ## How does it work?
 
