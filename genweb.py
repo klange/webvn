@@ -1,7 +1,32 @@
 #!/usr/bin/env python
 """
 Generate HTML from a subset of rpy
+
+    This is a program which generates "linear visual novels".
+In short, simplistic video games focused mostly on the art and
+plot development, with no story branches or inventories (Yet.)
+
+    It generates HTML script for browser run games, with a little help
+from the end user in the form of a .webvn file, which is kind of like a a screenplay. 
+
+    After this is written, configuration is easy. Just go to the "config.py"
+file, and edit in your own assets, titles and such in replace of current demo
+variables.
+
+    Once setup is complete, simply run this module, and it will
+generate all the HTML files you need to run the game. Now open "index.htm"
+in your favorite web browser to test-out/play your game.
+
+    To advance in the story, just click the screen. There are no decisions
+to make, items to collect, or minigames to play. More functionality
+(Story branches, inventories) will try to be added in the (not so distant) future.
+Enjoy! :)
+
+P.S
+Any suggestions/added functionality would be warmly welcomed.
 """
+
+from config import *
 import fileinput
 import sys
 
@@ -44,15 +69,6 @@ images_used = [
 # TODO put your assets here
 # TODO(klange): Maybe this should be automatically generated from the script?
 ]
-next_classes = None
-scene = "black"
-frame_count = 0
-characters = {}
-expressions = []
-last_content = ""
-last_scene = ""
-last_expression = ""
-audio_background = None
 
 output_buffer = ''
 current_file_num = 0
@@ -282,6 +298,5 @@ if __name__ == "__main__":
 	next_file()
 
 	with open(format_filename(-1), 'w') as f:
-		# TODO(klange): Why is this hard-coded...
-		f.write(container_text.format(title="Your Title Here", filename=format_filename(0)))
+		f.write(container_text.format(title=pageTitle, filename=format_filename(0)))
 
