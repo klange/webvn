@@ -1,13 +1,10 @@
 # webvn
 
-This is the tool that created the Endgames Visual Novel feated on Megatokyo.com in 2015. It generates pure HTML+CSS "linear" visual novels, though in theory it can be adapted for branching storylines.
+This is the tool that created the Endgames Visual Novel featured on Megatokyo.com in 2015. It generates pure HTML+CSS "linear" visual novels, though in theory it can be adapted for branching storylines.
 
 
 ## Usage
 
-I'm not entirely sure this is in a working state, but generally:
+Examine the `demo.webvn` to understand the syntax of the input files, and create assets for your characters and background scenes. Edit `scenes.css` to add new scene descriptions, and edit `vn.css` to change the look and feel of the text boxes.
 
-- Write your script in the [webvn](https://megatokyo.com/endgames-vn/part1.webvn) format.
-- Build a bunch of PNG assets.
-- Run `genweb.py` to build HTML assets.
-- Write the CSS for [scene descriptions](https://megatokyo.com/endgames-vn/scenes.css).
+Running `python2 genweb.py demo.webvn` will create a series of files `demo_0.htm` (and so on) for each of the music segments in your source file. `index.htm` is configured to load the first frame of the demo script.
