@@ -1,0 +1,379 @@
+/*
+ * Pure CSS linear visual novel tool.
+ *
+ * Copyright 2015 Kevin Lange
+ *
+ * <!- Insert BSD license here -->
+ *
+ */
+
+@font-face {
+	font-family: 'VTC Letterer pro';
+	font-style: normal;
+	font-weight: 400;
+	src: url(assets/ui/fonts/VTC_letterer_pro.ttf);
+}
+
+body {
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	overflow: hidden;
+	font-family: 'VTC Letterer pro';
+}
+
+/*
+ * The viewport holds all the frames.
+ * It should fill screen.
+ */
+div.viewport {
+	padding: 0px;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	overflow: hidden;
+}
+
+/*
+ * The stage contains all of the elements that should
+ * apppear on screen together. Usually, a frame
+ * will have two stages - a previous viewpoint to
+ * transition from, and the actual contents of the
+ * current frame. Timed transitions might use three
+ * stages - previous content, the content to automatically
+ * transition away from, and the content for the "next"
+ * frame after the transition.
+ */
+div.stage {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100vw;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+/*
+ * Character positioning.
+ */
+
+img.pirogoeth {
+	height: 100%;
+}
+
+.center-character {
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.right-character {
+	text-align: right;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.left-character {
+	text-align: left;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+/*
+ * Scene overlays.
+ */
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.screen-color-10 { background-color: rgba(0,0,0,0.1); }
+.screen-color-20 { background-color: rgba(0,0,0,0.2); }
+.screen-color-30 { background-color: rgba(0,0,0,0.3); }
+.screen-color-40 { background-color: rgba(0,0,0,0.4); }
+.screen-color-50 { background-color: rgba(0,0,0,0.5); }
+.screen-color-60 { background-color: rgba(0,0,0,0.6); }
+.screen-color-70 { background-color: rgba(0,0,0,0.7); }
+.screen-color-80 { background-color: rgba(0,0,0,0.8); }
+.screen-color-90 { background-color: rgba(0,0,0,0.9); }
+
+/*
+ * Animations
+ */
+.slide-from-right {
+	animation: slide-from-right 1s 1;
+	-webkit-animation: slide-from-right 1s 1;
+}
+.fade-in {
+	animation: fade-in 0.5s 1;
+	-webkit-animation: fade-in 0.5s 1;
+}
+.fade-in-slow {
+	animation: fade-in 5s 1;
+	-webkit-animation: fade-in 5s 1;
+}
+.shake {
+	animation: shake-it 0.1s 3 linear alternate;
+	-webkit-animation: shake-it 0.1s 3 linear alternate;
+}
+
+/*
+ * Traditional VN dialogue boxes.
+ */
+.sayscreen-border {
+	/*
+	 * This should be customized to the theme of
+	 * the VN, and also probably to the individual
+	 * character that the dialogue is for.
+	 *
+	 * This default is black, semi-transparent, with
+	 * orange borders. This is what dialogue in the
+	 * Megatokyo Visual Novel is supposed to look like.
+	 */
+	background-color: rgba(0,0,0,0.75);
+	border-radius: 2vh;
+	border: solid;
+	border-color: #ffc137;
+	border-width: 0.5vh;
+}
+div.sayscreen-holder {
+	position: absolute;
+	bottom: 1%;
+	left: 11.5%;
+	width: 75%;
+	height: 25%;
+	padding: 0%;
+}
+div.sayscreen-character {
+	/* This is whre the character name appears. */
+	padding-left: 0.7vh;
+	padding-top: 0.3vh;
+	color: #ff8400;
+	font-size: 5vh;
+}
+div.sayscreen {
+	height: 70%;
+}
+div.sayscreen-title {
+	height: 20%;
+	width: 25vh;
+	margin-bottom: 0.4vh;
+}
+div.sayscreen-text {
+	/* This is where the text shows up */
+	padding: 2vh;
+	color: #FFFFFF;
+	font-size: 5vh;
+}
+
+/*
+ * Wordbubbles.
+ * These are primarily for speech for the protagonist.
+ */
+div.wordbubble {
+	color: #000;
+	font-size: 5vh;
+	width: 30%;
+	text-align: center;
+	bottom: 1%;
+	left: 35%;
+	position: absolute;
+
+	background-color: #fff;
+	border: 1vh solid #000;
+	border-radius: 100%;
+}
+div.wordbubble-character {
+	color: #000;
+	font-size: 5vh;
+	width: 30%;
+	text-align: center;
+	position: absolute;
+	top: 30vh;
+	left: 10vh;
+
+	background-color: #fff;
+	border: 1vh solid #000;
+	border-radius: 100%;
+}
+div.wordbubble-text {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+div.wordbubble-content {
+	padding: 6vh;
+}
+
+/*
+ * Wordboxes are the same as bubbles,
+ * but formatted as boxes instead.
+ */
+div.wordbox {
+	color: #000;
+	font-size: 5vh;
+	width: 30%;
+	border: 1vh solid #000;
+	background-color: #fff;
+	text-align: center;
+	bottom: 1%;
+	left: 35%;
+	position: absolute;
+	border-radius: 1vh;
+}
+.wordbox-content {
+	padding: 2vh;
+}
+
+/*
+ * Animation keyframe definitions.
+ */
+@keyframes slide-from-right {
+	0% { left: 60%; opacity: 0.0; }
+	100% { left: 40%; opacity: 1.0; }
+}
+@-webkit-keyframes slide-from-right {
+	0% { left: 60%; opacity: 0.0; }
+	100% { left: 40%; opacity: 1.0; }
+}
+
+@keyframes fade-in {
+	0% { opacity: 0.0; }
+	100% { opacity: 1.0; }
+}
+@-webkit-keyframes fade-in {
+	0% { opacity: 0.0; }
+	100% { opacity: 1.0; }
+}
+
+@keyframes shake-it {
+	0% { top: -10vh; }
+	100% { top: 10vh; }
+}
+@-webkit-keyframes shake-it {
+	0% { top: -5vh; }
+	100% { top: 5vh; }
+}
+
+/*
+ * Centered white text.
+ * This can be used for title screens,
+ * or for internal dialogue of the protagonist
+ * to describe the scene. Use with a black or
+ * otherwise dark background.
+ */
+.centered-white-text {
+	position: absolute;
+	font-size: 5vh;
+	color: #fff;
+	left: 0px;
+	right: 0px;
+	bottom: 2vh;
+	text-align: center;
+	padding: 10vh;
+	padding-left: 30vh;
+	padding-right: 30vh;
+	line-height: 5vh;
+}
+.centered-white-text > a {
+	color: #fff;
+}
+.centered-white-text.vertical-one-line {
+	bottom: 47.55vh;
+	padding: 0;
+}
+.centered-white-text.vertical-two-line {
+	bottom: 45vh;
+	padding: 0;
+}
+.centered-white-text.vertical-three-line {
+	bottom: 42.5vh;
+	padding: 0;
+}
+.centered-white-text.vertical-four-line {
+	bottom: 40.0vh;
+	padding: 0;
+}
+.centered-white-text.vertical-five-line {
+	bottom: 37.5vh;
+	padding: 0;
+}
+
+/*
+ * These are the critical controls
+ * for the VN and control how transition
+ * elements are formatted and frames get
+ * displayed. Don't mess with them unless you
+ * know what you are doing.
+ */
+.frame > form {
+	position: absolute;
+	display: block;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.frame > form > button {
+	position: absolute;
+	display: block;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.0;
+}
+.frame > a.framelink {
+	position: absolute;
+	display: block;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0.0;
+}
+
+audio {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #fff;
+}
+
+#preload {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 1;
+	height 1;
+	opacity: 0.0;
+}
+
+.frame {
+	display: none;
+}
+
+:target {
+	display: block;
+}
+
