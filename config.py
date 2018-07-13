@@ -1,0 +1,10 @@
+pageTitle = "Your title here"
+next_classes = None
+scene = "black"
+frame_count = 0
+characters = {}
+expressions = []
+last_content = ""
+last_scene = ""
+last_expression = ""
+audio_background = None
