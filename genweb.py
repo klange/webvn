@@ -40,8 +40,6 @@ header = """
 		<div class="viewport">
 """
 
-character_names = ['pirogoeth']
-
 images_used = [
 # TODO put your assets here
 # TODO(klange): Maybe this should be automatically generated from the script?
@@ -206,10 +204,11 @@ def process(line):
 
 	# TODO: These character lines need to be adjusted
 	# TODO(klange): This should probably be part of a config.
-	elif c == "moh":
+	elif c == "wordbubble":
 		print_frame(stage([wordbubble(eval(rest))]))
-	elif c == "pirogoeth":
-		print_frame(stage([characterbubble("pirogoeth", rest)]))
+	elif c == "characterbubble":
+		character, _, rest = rest.partition(" ")
+		print_frame(stage([characterbubble(character, rest)]))
 	elif c == "scene":
 		scene = rest.split()[-1]
 		characters.clear()
@@ -219,9 +218,6 @@ def process(line):
 		print_frame(stage(["<!-- blank interstitial -->"]))
 	elif c == "show":
 		character = rest.split()[0].replace(":","")
-		if character not in character_names:
-			print >>sys.stderr, "Unknown character:", character
-			return
 		if character not in characters:
 			characters[character] = {'pose': None, 'position': 'center'}
 

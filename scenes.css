@@ -1,0 +1,50 @@
+.scene-demo {
+	background: url(assets/sample_background.jpg) no-repeat center center;
+	background-size: cover;
+}
+.scene-black {
+	background-color: #000;
+}
+.scene-splash {
+	background: url(assets/splash_art.jpg) no-repeat center center;
+	background-size: cover;
+}
+	.scene-splash a {
+		color: #fff;
+	}
+	.scene-splash .logo {
+		position: absolute;
+		width: 45vw;
+		right: 3vw;
+		top: 45vh;
+	}
+	.scene-splash .link-container {
+		position: absolute;
+		left: 15vw;
+		bottom: 10vh;
+		width: 70vw;
+		height: 10vh;
+		border: 0.5vh solid #000;
+		border-radius: 0.5vh;
+		background-color: rgba(0,0,0,0.5);
+		text-align: center;
+	}
+	.scene-splash .link-button {
+		display: inline-block;
+		margin-top: 1vh;
+		margin-left: 5vh;
+		margin-right: 5vh;
+		padding: 1vh;
+		width: 40vh;
+		height: 6vh;
+		background-color: #234244;
+		color: #fff;
+	}
+	.scene-splash .link-button a {
+		display: block;
+		font-size: 5vh;
+		width: 100%;
+		line-height: 5vh;
+		text-align: center;
+	}
+
