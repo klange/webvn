@@ -14,9 +14,9 @@
 	}
 	.scene-splash .logo {
 		position: absolute;
-		width: 45vw;
-		right: 3vw;
-		top: 45vh;
+		width: 30vw;
+		left: 35vw;
+		top: 40vh;
 	}
 	.scene-splash .link-container {
 		position: absolute;
